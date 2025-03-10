@@ -101,9 +101,10 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
         return;
     }
 
-    std::string response_str(buf, 0, recv_size);
+    //反序列化rpc调用的响应数据
+    //std::string response_str(buf, 0, recv_size);    //出现问题，recv_buf中遇到\0后面的数据就存不下来
     //进行数据的反序列化
-    if(!response->ParseFromString(response_str))
+    if(!response->ParseFromArray(buf,recv_size))
     {
         //数据反序列化失败
         std::cout << "parse response error! errno:" << errno << std::endl;
