@@ -50,7 +50,7 @@ public:
 
 int main(int argc,char **argv)
 {
-    //调用框架的初始化操作
+    //调用框架的初始化操作     provider -i config.conf读取配置文件操作
     MprpcApplication::Init(argc,argv);
 
     //框架上让用户发布服务
