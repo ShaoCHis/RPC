@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package friendlist;
+
+// protoc user.proto --cpp_out=./
+option cc_generic_services = true;
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+
+message GetFriendListRequest
+{
+    uint32 id = 1;
+}
+
+message GetFriendListResponse
+{
+    ResultCode result = 1;
+    bool sucess = 2;
+    repeated bytes friends = 3;
+}
+
+service FriendServiceRpc
+{
+    rpc GetFriendList(GetFriendListRequest) returns(GetFriendListResponse);
+}

@@ -11,6 +11,7 @@
 
 #include "mprpcapplication.hpp"
 #include "rpcheader.pb.h"
+#include "mprpccontroller.hpp"
 
 class MprpcChannel : public google::protobuf::RpcChannel
 {

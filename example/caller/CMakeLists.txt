@@ -1,4 +1,4 @@
-set(SRC_LIST calluserservice.cpp ../user.pb.cc)
+set(SRC_LIST calluserservice.cpp ../friend.pb.cc ../user.pb.cc)
 
 add_executable(consumer ${SRC_LIST})
 
