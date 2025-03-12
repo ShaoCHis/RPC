@@ -4,7 +4,6 @@
 
 #include "user.pb.h"
 #include "mprpcapplication.hpp"
-#include "rpcprovider.hpp"
 #include "friend.pb.h"
 #include "logger.hpp"
 
@@ -125,7 +124,7 @@ int main(int argc,char **argv)
 
     //框架上让用户发布服务
     //provider是一个rpc网络服务对象。把UserService对象发布到rpc节点上
-    RpcProvider provider;
+    MprpcProvider provider;
     provider.NotifyService(new UserService());
     provider.NotifyService(new FriendService());
 

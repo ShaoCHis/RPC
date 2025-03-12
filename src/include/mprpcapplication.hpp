@@ -2,6 +2,7 @@
 #include "mprpcconfig.hpp"
 #include "mprpcchannel.hpp"
 #include "mprpccontroller.hpp"
+#include "mprpcprovider.hpp"
 
 
 //mprpc框架的初始化类，单例模式

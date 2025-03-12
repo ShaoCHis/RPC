@@ -1,1 +1,18 @@
 
+21:58:1 =>[error] first log message
+21:58:1 =>[error] /home/shaochi/RPC/example/callee/userservice.cpp:main,121
+21:58:1 =>[info] zookeeper_init success!!
+21:58:1 =>[info] znode create success... path:/FriendServiceRpc
+21:58:1 =>[info] znode create success... path:/FriendServiceRpc/GetFriendList
+21:58:1 =>[info] znode create success... path:/UserServiceRpc
+21:58:1 =>[info] znode create success... path:/UserServiceRpc/Register
+21:58:1 =>[info] znode create success... path:/UserServiceRpc/Login
+22:7:46 =>[error] first log message
+22:7:46 =>[error] /home/shaochi/RPC/example/callee/userservice.cpp:main,121
+22:7:46 =>[info] zookeeper_init success!!
+22:7:46 =>[info] znode create success... path:/FriendServiceRpc/GetFriendList
+22:7:46 =>[info] znode create success... path:/UserServiceRpc/Register
+22:7:46 =>[info] znode create success... path:/UserServiceRpc/Login
+22:8:27 =>[info] zookeeper_init success!!
+22:8:27 =>[info] zookeeper_init success!!
+22:8:27 =>[info] zookeeper_init success!!

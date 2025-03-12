@@ -64,8 +64,27 @@ void MprpcChannel::CallMethod(const google::protobuf::MethodDescriptor *method,
     }
 
     // 服务器相关信息
-    std::string ip = MprpcApplication::getConfigLoader().Load("rpcserverip");
-    uint16_t port = atoi(MprpcApplication::getConfigLoader().Load("rpcserverport").c_str());
+    // std::string ip = MprpcApplication::getConfigLoader().Load("rpcserverip");
+    // uint16_t port = atoi(MprpcApplication::getConfigLoader().Load("rpcserverport").c_str());
+    //服务器相关信息应该从zk中取出
+    ZkClient zkCli;
+    zkCli.Start();
+    std::string method_path = "/" + service_name + "/" + method_name;
+    //127.0.0.1:8000
+    std::string host_data = zkCli.GetData(method_path.c_str());
+    if(host_data=="")
+    {
+        controller->SetFailed(method_path + " is not exist!");
+        return;
+    }
+    int idx = host_data.find(":");
+    if(idx==-1)
+    {
+        controller->SetFailed(method_path + " address is invalid!");
+        return;
+    }
+    std::string ip = host_data.substr(0,idx);
+    uint16_t port = atoi(host_data.substr(idx+1,host_data.size()-idx).c_str());
 
     struct sockaddr_in server_addr;
     server_addr.sin_family = AF_INET;
