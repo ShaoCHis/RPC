@@ -6,6 +6,7 @@
 #include "mprpcapplication.hpp"
 #include "rpcprovider.hpp"
 #include "friend.pb.h"
+#include "logger.hpp"
 
 /**
  * UserService原来是一个本地服务，提供了两个进程内的本地方法，Login和Register
@@ -117,6 +118,8 @@ public:
 
 int main(int argc,char **argv)
 {
+    LOG_INFO("first log message");
+    LOG_ERR("%s:%s,%d",__FILE__,__FUNCTION__,__LINE__)
     //调用框架的初始化操作     provider -i config.conf读取配置文件操作
     MprpcApplication::Init(argc,argv);
 
